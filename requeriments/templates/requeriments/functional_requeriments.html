@@ -1,0 +1,83 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+
+<div class="col-xl-10 mx-auto">
+  <div class="card border-bottom-primary py-3">
+    <h6 class="text-lg font-weight-bold text-primary text-lg-center">
+      Requerimientos funcionales &nbsp;&nbsp; <i class="fas fa-pen fa-2x text-gray-600"></i>
+    </h6>
+  </div>
+</div>
+<br /><br />
+
+<div class="col-xl-9 mx-auto">
+  <div class="row">
+    <div class="col-lg-2 mx-auto">
+      {% for project in projects %}
+      <a href="{% url 'project' project.id %}" class="btn btn-light btn-icon-split">
+        {% endfor %}
+        <span class="icon text-gray-600">
+          <i class="fas fa-arrow-left"></i>
+        </span>
+        <span class="text">Volver</span>
+      </a>
+    </div>
+
+{% for user in users %}
+{% if user.type_user == 'Gerente' or 'Analista'%}
+<div class="col-lg-4 mx-auto">
+<a class="btn btn-primary btn-icon-split" href="{% url 'new_fr' user.project.id %}"><span class="icon text-white-50">
+          <i class="fa fa-plus"></i>
+        </span><span class="text">Nuevo requerimiento</span></a>
+</div>
+
+<div class="col-lg-5 mx-auto">
+<a class="btn btn-info btn-icon-split" href="{% url 'sfrs' user.project.id %}"><span class="icon text-white-50">
+          <i class="fas fa-thumbtack"></i>
+        </span><span class="text">Especificación de requerimientos</span></a>
+{% endif %}
+{% endfor %}
+</div>
+</div></div>
+{% for requeriment in requeriments %}
+<table>
+<tr>
+<td><label><b>TITULO</b></label></td>
+<td>{{requeriment.title}}</td>
+</tr>
+<tr>
+<td><label><b>DESCRIPCION</b></label></td>
+<td>{{requeriment.description}}</td>
+</tr>
+<tr>
+<td><label><b>PRIORIDAD</b></label></td>
+<td>{{requeriment.priority}}</td>
+</tr>
+<tr>
+<td><label><b>ESTADO</b></label></td>
+<td>{{requeriment.state}}</td>
+</tr>
+<tr>
+<td><label><b>COSTO</b></label></td>
+<td>{{requeriment.cost}}</td>
+</tr>
+<tr>
+<td><label><b>COMENTARIOS</b></label></td>
+<td>{{requeriment.comments}}</td>
+</tr>
+
+</table>
+<br><br>
+{% endfor %}
+
+
+
+
+
+
+
+
+{% endblock %}

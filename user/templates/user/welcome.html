@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %} {% block topbar %}
+<!-- Topbar -->
+<nav
+  class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+>
+  <h1 class="h3 mb-0 text-gray-800">
+    ¡Hola <b>{{request.user.username}}</b>!, comience creando un proyecto.
+  </h1>
+</nav>
+{% endblock %} {% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <div class="col-lg-3">
+    <a class="btn btn-primary btn-icon-split" href="{% url 'new_project' %}"
+      ><span class="icon text-white-50">
+        <i class="fa fa-plus"></i>
+      </span>
+      <span class="text">Añadir proyecto</span></a
+    >
+  </div>
+</div>
+
+{% endblock %}

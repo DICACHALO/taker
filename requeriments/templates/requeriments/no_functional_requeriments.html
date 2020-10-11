@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+<h1>REQUERIMIENTOS NO FUNCIONALES</h1>
+{% for user in users %}
+{% if user.type_user == 'Gerente' or 'Analista'%}
+<a href="{% url 'new_nfr'  user.project.id %}">Nuevo requerimiento</a>
+<br>
+<a href="{% url 'snfrs' user.project.id %}">Especificación de Requerimeintos</a>
+{% endif %}
+{% endfor %}
+<br><br>
+{% for requeriment in requeriments %}
+<table>
+<tr>
+<td><label><b>TITULO</b></label></td>
+<td>{{requeriment.title}}</td>
+</tr>
+<tr>
+<td><label><b>DESCRIPCION</b></label></td>
+<td>{{requeriment.description}}</td>
+</tr>
+<tr>
+<td><label><b>DESCRIPCION</b></label></td>
+<td>{{requeriment.type_r}}</td>
+</tr>
+<tr>
+<td><label><b>PRIORIDAD</b></label></td>
+<td>{{requeriment.priority}}</td>
+</tr>
+<tr>
+<td><label><b>ESTADO</b></label></td>
+<td>{{requeriment.state}}</td>
+</tr>
+<tr>
+<td><label><b>COSTO</b></label></td>
+<td>{{requeriment.cost}}</td>
+</tr>
+<tr>
+<td><label><b>COMENTARIOS</b></label></td>
+<td>{{requeriment.comments}}</td>
+</tr>
+</table>
+<br><br>
+{% endfor %}
+
+
+{% for project in projects %}
+<a href="{% url 'project' project.id %}">Volver</a>
+{% endfor %}
+<br>
+<a href="{% url 'welcome' %}">Inicio</a>
+{% endblock %}

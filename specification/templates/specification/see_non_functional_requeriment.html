@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+
+{% for specification in specifications %}
+<table>
+<tr>
+<td><label><b>TITULO</b></label></td>
+<td>{{specification.title}}</td>
+</tr>
+<tr>
+<td><label><b>DESCRIPCION</b></label></td>
+<td>{{specification.description}}</td>
+</tr>
+<tr>
+<td><label><b>PRIORIDAD</b></label></td>
+<td>{{specification.priority}}</td>
+</tr>
+<tr>
+<td><label><b>ESTADO</b></label></td>
+<td>{{specification.state}}</td>
+</tr>
+<tr>
+<td><label><b>COSTO</b></label></td>
+<td>{{specification.cost}}</td>
+</tr>
+<tr>
+<td><label><b>TIPO</b></label></td>
+<td>{{specification.type_r}}</td>
+</tr>
+<tr>
+<td><label><b>SUB-TIPO</b></label></td>
+<td>{{specification.sub_type}}</td>
+</tr>
+
+<tr>
+<td><label><b>COMENTARIOS</b></label></td>
+<td>{{specification.comments}}</td>
+</tr>
+<tr>
+<td><label><b>ARCHIVOS</b></label></td>
+<td>
+{% for feed in feeds %}
+
+<a href="/media/{{ feed.file }}" download >{{ feed.file }}</a>
+<br>
+{% empty %}
+<h3>No hay Archivos en este Requerimiento</h3>
+{% endfor%}</td>
+</tr>
+</table>
+<br><br>
+<a href="{% url 'snfrs' specification.project.id %}">Volver</a>
+{% endfor %}
+<br>
+<a href="{% url 'welcome' %}">Inicio</a>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+
+{% if specifications %}
+<h2>REQUERIMIENTOS FUNCIONALES ESPECIFICADOS</h2>
+{% endif %}
+<br><br>
+{% for specification in specifications %}
+<table>
+<tr>
+<td><label><b>TITULO</b></label></td>
+<td>{{specification.title}}</td>
+</tr>
+<tr>
+<td><label><b>DESCRIPCION</b></label></td>
+<td>{{specification.description}}</td>
+</tr>
+<tr>
+<td><label><b>PRIORIDAD</b></label></td>
+<td>{{specification.priority}}</td>
+</tr>
+<tr>
+<td><label><b>ESTADO</b></label></td>
+<td>{{specification.state}}</td>
+</tr>
+<tr>
+<td><label><b>COSTO</b></label></td>
+<td>{{specification.cost}}</td>
+</tr>
+<tr>
+<td><label><b>ENTRADA</b></label></td>
+<td>{{specification.input}}</td>
+</tr>
+<tr>
+<td><label><b>FUENTE</b></label></td>
+<td>{{specification.source}}</td>
+</tr>
+<tr>
+<td><label><b>SALIDA</b></label></td>
+<td>{{specification.output}}</td>
+</tr>
+<tr>
+<td><label><b>DESTINO</b></label></td>
+<td>{{specification.destiny}}</td>
+</tr>
+<tr>
+<td><label><b>PROCESO</b></label></td>
+<td>{{specification.process}}</td>
+</tr>
+<tr>
+<td><label><b>RESTRICCIONES</b></label></td>
+<td>{{specification.restriction}}</td>
+</tr>
+<tr>
+<td><label><b>DAÑO COLATERAL</b></label></td>
+<td>{{specification.collateral_damage}}</td>
+</tr>
+
+<tr>
+<td><label><b>COMENTARIOS</b></label></td>
+<td>{{specification.comments}}</td>
+</tr>
+</tr>
+<tr>
+<td><label>Archivos</label></td>
+<td>
+{% for feed in feeds %}
+<a href="/media/{{ feed.file }}" download >{{ feed.file }}</a>
+
+<br>
+{% empty %}
+<h3>No hay Archivos en este Requerimiento</h3>
+{% endfor%}
+</td>
+</tr>
+</tr>
+
+
+</table>
+<br><br>
+
+<a href="{% url 'sfrs' specification.project.id %}">Volver</a>
+{% endfor %}
+<br>
+<a href="{% url 'welcome' %}">Inicio</a>
+
+{% endblock %}

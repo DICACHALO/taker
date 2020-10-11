@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %}
+
+{% block content %}
+
+<div class="col-xl-8 mx-auto">
+  <div class="card border-bottom-primary py-2">
+    <h6 class="text-lg font-weight-bold text-primary text-lg-center">
+      Equipo de trabajo &nbsp;&nbsp; <i class="fas fa-users fa-2x text-gray-600"></i>
+    </h6>
+  </div>
+</div>
+
+
+<div class="col-xl-6 mx-auto">
+  <div class="card-body">
+<form action="" method="POST">
+ {% csrf_token %}
+ <div class="card border-left-primary shadow h-100 py-1">
+<div class="card-body">
+<div class="row no-gutters align-items-center">
+<div class="col mr-2">
+<div class="text-lg  text-primary mb-3">Correo electrónico: 
+</div>
+<div class="text-lg  text-primary mb-3"> {{form.user}}
+</div>
+<div class="text-lg text-primary mb-3">
+Tipo de usuario:
+</div>
+<div class="row-cols-lg-1">
+{{form.type_user}}
+</div>
+<br><br><br><br><br><br>
+<div class="row">
+&nbsp;&nbsp;
+<button type="submit" class="btn btn-success btn-icon-split">
+<span class="icon text-white-50">
+<i class="fas fa-check"></i></span><span class="text">Guardar</span>
+</button>
+</form>
+
+{% for project in projects %}
+
+&nbsp;&nbsp;
+<a href="{% url 'group' project.id %}" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-arrow-left"></i></span><span class="text">Volver</span></a>
+{% endfor %}
+       
+      </div>
+    </div>
+  </div>
+</div></div>
+</div></div> 
+{% endblock %}

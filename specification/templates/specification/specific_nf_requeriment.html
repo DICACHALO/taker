@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+
+<h1> ESPECIFICACION DE REQUERIMIRNTO NO FUNCIONAL</h1>
+{% for requeriment in requeriments %}
+<form action="" method="POST"  enctype="multipart/form-data">
+ {% csrf_token %}
+<table>
+<tr>
+<td><label><b>TITULO</b></label></td>
+<td>{{requeriment.title}}</td>
+</tr>
+<tr>
+<td><label><b>PRIORIDAD</b></label></td>
+<td>{{requeriment.priority}}</td>
+</tr>
+<tr>
+<td><label><b>DESCRIPCION</b></label></td>
+<td>{{requeriment.description}}</td>
+</tr>
+<tr>
+<td><label><b>ESTADO</b></label></td>
+<td>{{requeriment.state}}</td>
+</tr>
+<tr>
+<td><label><b>COSTO</b></label></td>
+<td>{{requeriment.cost}}</td>
+</tr>
+<tr>
+<td><label><b>TIPO</b></label></td>
+<td>{{requeriment.type_r}}</td>
+</tr>
+<tr>
+<td><label><b>SUBTIPO</b></label></td>
+<td>{{form.sub_type}}</td>
+</tr>
+<tr>
+<td><label><b>ARCHIVOS</b></label></td>
+<td>{{feed_form.file}}</td>
+</tr>
+
+<tr>
+<td><label><b>COMENTARIOS</b></label></td>
+<td>{{requeriment.comments}}</td>
+</tr>
+
+<tr>
+  <center> <td> <button type="submit">Send</button></td></center>
+</tr>
+</table>
+
+</form>
+
+<a href="{% url 'sfrs' requeriment.project.id %}">Volver</a>
+{% endfor %}
+<br>
+<a href="{% url 'welcome'  %}">Inicio</a>
+
+{% endblock %}

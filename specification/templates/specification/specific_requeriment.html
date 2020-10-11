@@ -1,0 +1,83 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+
+<h1> ESPECIFICACION DE REQUERIMIRNTO FUNCIONAL</h1>
+{% for requeriment in requeriments %}
+<form action="" method="POST" enctype="multipart/form-data">
+ {% csrf_token %}
+<table>
+<tr>
+<td><label><b>TITULO</b></label></td>
+<td>{{requeriment.title}}</td>
+</tr>
+<tr>
+<td><label><b>PRIORIDAD</b></label></td>
+<td>{{requeriment.priority}}</td>
+</tr>
+<tr>
+<td><label><b>DESCRIPCION</b></label></td>
+<td>{{requeriment.description}}</td>
+</tr>
+<tr>
+<td><label><b>ESTADO</b></label></td>
+<td>{{requeriment.state}}</td>
+</tr>
+<tr>
+<td><label><b>COSTO</b></label></td>
+<td>{{requeriment.cost}}</td>
+</tr>
+<tr>
+<td><label><b>ENTRADA</b></label></td>
+<td>{{form.input}}</td>
+</tr>
+<tr>
+<td><label><b>FUENTE</b></label></td>
+<td>{{form.source}}</td>
+</tr>
+<tr>
+<td><label><b>SALIDA</b></label></td>
+<td>{{form.output}}</td>
+</tr>
+<tr>
+<td><label><b>DESTINO</b></label></td>
+<td>{{form.destination}}</td>
+</tr>
+<tr>
+<td><label><b>PROCESO</b></label></td>
+<td>{{form.process}}</td>
+</tr>
+<tr>
+<td><label><b>RESTRICCIONES</b></label></td>
+<td>{{form.restriction}}</td>
+</tr>
+<tr>
+<td><label><b>DAÑO COLATERAL</b></label></td>
+<td>{{form.collateral_damage}}</td>
+</tr>
+
+
+<tr>
+<td><label><b>COMENTARIOS</b></label></td>
+<td>{{requeriment.comments}}</td>
+</tr>
+<tr>
+<td><label><b>ARCHIVOS</b></label></td>
+<td>{{feed_form.file}}</td>
+</tr>
+
+<tr>
+  <center> <td> <button type="submit">Send</button></td></center>
+</tr>
+</table>
+
+</form>
+
+<a href="{% url 'sfrs' requeriment.project.id %}">Volver</a>
+{% endfor %}
+<br>
+<a href="{% url 'welcome'  %}">Inicio</a>
+
+{% endblock %}

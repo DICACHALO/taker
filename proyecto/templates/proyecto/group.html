@@ -1,0 +1,87 @@
+{% extends 'core/base.html' %} {% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+
+<div class="col-xl-10 mx-auto">
+  <div class="card border-bottom-primary py-2">
+    <h6 class="text-lg font-weight-bold text-primary text-lg-center">
+      Equipo de trabajo &nbsp;&nbsp; <i class="fas fa-users fa-2x text-gray-600"></i>
+    </h6>
+  </div>
+</div>
+<br /><br />
+
+
+  
+ <div class="col-xl-10 mx-auto">
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo electrónico</th>
+              <th>Celular</th>
+              <th>Fijo</th>
+              <th>Dirección</th>
+              <th>Cargo</th>
+            </tr>
+          </thead>
+          <tbody>{% for project in projects %}
+            <tr>
+              <td></td>
+              <td></td>
+              <td>{{project.user}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>{{project.type_user}}</td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+ <div class="col-xl-10 mx-auto">
+  <div class="row">
+    <div class="col-lg-4">
+      {% for pro in proj %}
+      <a href="{% url 'project' pro.id %}" class="btn btn-light btn-icon-split">
+        {% endfor %}
+        <span class="icon text-gray-600">
+          <i class="fas fa-arrow-left"></i>
+        </span>
+        <span class="text">Volver</span>
+      </a>
+    </div>
+
+    {% for user in users %} {% if user.type_user == 'Gerente'%}
+    <div class="col-lg-4">
+      <a
+        class="btn btn-primary btn-icon-split"
+        href="{% url 'new_member' user.project.id %}"
+        ><span class="icon text-white-50">
+          <i class="fa fa-plus"></i>
+        </span>
+        <span class="text">Añadir nuevo integrante</span></a
+      >
+
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
