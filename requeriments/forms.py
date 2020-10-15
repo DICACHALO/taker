@@ -3,8 +3,9 @@ from django.forms.widgets import TextInput, Textarea
 
 choices_priority = [('Alta','Alta'),('Media','Media'),('Baja','Baja')]
 choices_cost = [('Alto','Alto'),('Medio','Medio'),('Bajo','Bajo')]
-choices_state = [('Propuesta','Propuesta'),('Aprobado','Aprobado'),('En Curso','En Curso'),('Implementado','Implementado'),('Aplazado','Aplazado'),('Rechazado','Rechazado')]
-choices_type = [('R. de Producto','R. de Producto'),('R. Organizacional','R. Organizacional'),('R. Externos','R. Externos')]
+choices_state = [('Propuesta','Propuesta'),('Aprobado','Aprobado'),('En curso','En curso'),('Implementado','Implementado'),('Aplazado','Aplazado'),('Rechazado','Rechazado')]
+choices_type = [('Requerimiento de producto','Requerimiento de producto'),('Requerimiento organizacional','Requerimiento organizacional'),('Requerimiento externo','Requerimiento externo')]
+
 class NewFunctionalrequeriments(forms.Form):
     title = forms.CharField(widget=TextInput(
         attrs={'class': 'form-control'}))
