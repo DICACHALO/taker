@@ -38,4 +38,3 @@ wincertstore==0.2
 wrapt==1.12.1
 tensorflow==1.15
 tflearn==0.3.2
-nltk==3.5
