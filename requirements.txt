@@ -36,6 +36,6 @@ toml==0.10.1
 whitenoise==5.2.0
 wincertstore==0.2
 wrapt==1.12.1
-tensorflow==1.15.1
+tensorflow==1.15
 tflearn==0.3.2
 nltk==3.5
