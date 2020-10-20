@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %} 
+
+{% block topbar %}
+<!-- Topbar -->
+<nav
+   class="navbar navbar-light mb-0"
+></nav>
+{% endblock %} 
+
+{% block content %}
+<h1>GRÁFICOS DE REQUERIMIENTOS FUNCIONALES</h1>
+
+<img src="data:image/png;base64,{{ data }}" alt="" height="500", width=500>
+<br>
+
+<a href="{% url 'plot' projecto %}">Volver</a>
+
+<br>
+<a href="{% url 'welcome' %}">Inicio</a>
+{% endblock %} 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">  
+  <head>    
+    <title>TAKER</title>    
+    <meta charset="UTF-8">
+    <meta name="title" content="TAKER">
+    {% load static %}
+    <link href="{% static 'core/css/style.css' %}" rel="stylesheet"/>
+    <link href="{% static 'core/css/chat.css' %}" rel="stylesheet"/>    
+  </head>  
+  <body>    
+    {% for item in message %}
+        <h1>{{ item.nombre}} </h1>
+        <br>
+        <h1>{{ item.email}} </h1>
+        <br>
+        <h1>{{ item.problema}} </h1>
+        <br>
+    {% endfor %}
+  {% for mensaje in mensajes %}
+  {% if mensaje.nombre == "taker" %}
+    <div class="container">
+    <img src="{% static 'core/img/bandmember.jpg'  %}" alt="Avatar">
+    <p>{{mensaje.mensaje}}</p>
+    <span class="time-right">{{mensaje.created}}</span>
+    </div>
+{% else %}
+    <div class="container darker">
+    <img src="{% static 'core/img/avatar_g2.png'  %}" alt="Avatar" class="right">
+    <p>{{mensaje.mensaje}}</p>
+    <span class="time-left">{{mensaje.created}}</span>
+    </div>
+{% endif %}
+{% endfor %}
+
+<a href="{% url 'project' project %}">Volver</a>
+
+<br>
+<a href="{% url 'welcome'  %}">Inicio</a>
+<script src="{% static 'core/js/script.js'  %}"> </script>
+  </body>  
+</html>
+

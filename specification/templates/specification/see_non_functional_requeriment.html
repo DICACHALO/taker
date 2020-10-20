@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+<div class="col-xl-10 mx-auto">
+  <div class="card border-bottom-primary py-3">
+    <h6 class="text-lg font-weight-bold text-primary text-lg-center">Especificación de requerimientos no funcionales del sistema &nbsp;&nbsp; <i class="fas fa-compress-arrows-alt fa-2x text-gray-600"></i>
+    </h6>
+  </div>
+</div>
+{% for specification in specifications %}
+<br>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+  <h6 class="m-0 font-weight-bold text-primary">{{specification.title}} : {{specification.description}}</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<thead>
+<tr>
+<th>Prioridad</th>
+<th>Estado</th>
+<th>Costo</th>
+<th>Comentarios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{specification.priority}}</td>
+<td>{{specification.state}}</td>
+<td>{{specification.cost}}</td>
+<td>{{specification.comments}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<tr>
+<td><label><b>Tipo</b></label></td>
+<td>{{specification.type_r}}</td>
+</tr>
+<tr>
+<td><label><b>Subtipo</b></label></td>
+<td>{{specification.sub_type}}</td>
+</tr>
+<tr>
+<td><label><b>Documentos asociados</b></label></td>
+<td>
+{% for feed in feeds %}
+<a href="/media/{{ feed.file }}" download >{{ feed.file }}</a>
+<br>
+
+{% empty %}
+
+{% endfor%}
+</tr>
+</table>
+</div></div>
+<div class="card-body">
+<a href="{% url 'snfrs' specification.project.id %}" class="btn btn-light btn-icon-split"><span class="icon text-gray-600"><i class="fas fa-arrow-left"></i></span><span class="text">Volver</a></span></div>
+
+{% endfor %}
+
+{% endblock %}
