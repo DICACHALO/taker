@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% block topbar %}
+<!-- Topbar -->
+<nav class="navbar navbar-light mb-0"></nav>
+{% endblock %} {% block content %}
+
+<h1>PRE-CHAT</h1>
+<h2>Antes de comenzar, por favor podria proporcionarnos unos cuantos datos</h2>
+
+<form action="" method="POST">
+ {% csrf_token %}
+<table>
+<tr>
+<td><label><b>NOMBRE</b></label></td>
+<td>{{form.nombre}}</td>
+</tr>
+<tr>
+<td><label><b>CORREO ELECTRONICO</b></label></td>
+<td>{{form.email}}</td>
+</tr>
+<tr>
+<td><label><b>PROBLEMA A RESOLVER</b></label></td>
+<td>{{form.problema}}</td>
+</tr>
+
+<tr>
+  <center> <td> <button type="submit">Send</button></td></center>
+</tr>
+</table>
+
+</form>
+
+<a href="{% url 'project' project %}">Volver</a>
+
+<br>
+<a href="{% url 'welcome'  %}">Inicio</a>
+
+{% endblock %}
