@@ -1,6 +1,0 @@
-wordnet
-pros_cons
-reuters
-LancasterStemmer
-stopwords
-punkt
