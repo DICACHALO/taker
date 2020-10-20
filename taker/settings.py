@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'specification',
     'core',
     'output',
-    'chat',
 ]
 
 MIDDLEWARE = [

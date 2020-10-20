@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 from requeriments import views as requeriments_views
 from specification import views as specification_requeriments
 from output import views as output, pdf
-from chat import views as msj
 
 urlpatterns = [
     path('', views.welcome, name="welcome"),
@@ -50,9 +49,6 @@ urlpatterns = [
     path('report/<int:project_id>/', output.report, name="report"),
     path('media/', specification_requeriments.download),
     path('pdf/<int:pk>/', pdf.pdf, name="pdf"),
-    path('chat/<int:project_id>/', msj.msj, name="msj"),
-    path('pre-chat/<int:project_id>/', msj.pre_msj, name="pre_msj"),
-    path('message/<int:project_id>/', msj.message, name="message"),
 
     path('admin/', admin.site.urls),
 ]
