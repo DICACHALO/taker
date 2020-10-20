@@ -19,13 +19,8 @@ psycopg2==2.8.5
 pycodestyle==2.6.0
 pylint==2.5.3
 python-dateutil==2.8.1
-pyparsing==2.4.7
-pytz==2020.1
 sqlparse==0.3.1
 reportlab==3.5.53
 tensorflow==1.15
 tflearn==0.3.2
-toml==0.10.1
 whitenoise==5.2.0
-wincertstore==0.2
-wrapt==1.12.1
